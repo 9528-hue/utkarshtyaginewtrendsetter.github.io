@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clothing Shopping Website</title>
+<style>
+/* General Styles */
+body
+{
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+.container {
+position: fixed;
+top: 20px;
+right: 20px;
+}
+.open-btn {
+font-size: 16px;
+background-color: #333;
+color: white;
+padding: 10px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}
+.open-btn:hover {
+background-color: #808080;
+}
+.sidebar {
+height: 100%;
+width: 0;
+position: fixed;
+top: 0;
+right: 0;
+background-color: #DCDCDC;
+color: black;
+overflow: hidden; /* Hides the content when width is 0 */
+transition: width 0.5s ease; /* Smooth transition for width */
+padding: 0; /* No padding initially */
+box-sizing: border-box;
+}
+.sidebar-content {
+padding: 20px; /* Content padding is added when sidebar opens */
+display: none; /* Hide content by default */
+}
+.sidebar.open {
+width: 300px; /* Width when open */
+}
+.sidebar.open .sidebar-content {
+display: block; /* Show content only when the sidebar is open */
+}
+.sidebar h2 {
+text-align: center;
+font-size: 30px;
+margin: 0;
+}
+.sidebar p {
+margin: 15px 0;
+}
+.close-btn {
+position: absolute;
+top: 10px;
+right: 20px;
+font-size: 30px;
+color: black;
+background: transparent;
+border: none;
+cursor: pointer;
+}
+.close-btn:hover {
+color: #f1f1f1;
+}
+<body>
+<div class="container">
+<button class="open-btn" onclick="openSidebar()">About Us</button>
+</div>
+<div id="mySidebar" class="sidebar">
+<button class="close-btn" onclick="closeSidebar()">×</button>
+<h2>About Us</h2>
+<p>Welcome to our shopping website, where fashion meets convenience!</p>
+</div>
+{
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #333;
+}
+h1, h2 {
+color: #000000;
+}
+header {
+background-color: #DCDCDC;
+color: black;
+padding: 15px 0;
+text-align: center;
+}
+nav {
+background-color: #000000;
+padding: 10px;
+text-align: center;
+}
+nav a {
+color: black;
+text-decoration: none;
+margin: 0 15px;
+padding: 10px 20px;
+padding: 10px 20px;
+border-radius: 5px;
+}
+}
+/* Full-Section Image Style */
+.home-section {
+position: relative;
+height: 300px;
+background: 
+url('https://via.placeholder.com/800x200?text=Welcome+to+Trendsetter') 
+no-repeat center center/cover;
+color: gray;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+.home-text {
+background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better 
+readability */
+padding: 20px;
+border-radius: 10px;
+}
+/* Section Styles */
+section {
+margin: 20px auto;
+padding: 20px;
+max-width: 1200px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+th, td {
+padding: 15px;
+text-align: center;
+border: 1px solid #ddd;
+}
+th {
+background-color: #F4FFFF;
+}
+img {
+width: 170px;
+border-radius: 5px;
+}
+button {
+background-color: #DCDCDC;
+color: black;
+border: none;
+padding: 10px 15px;
+cursor: pointer;
+border-radius: 5px;
+}
+button:hover {
+background-color: #2F4F4F;
+}
+footer {
+text-align: center;
+background-color: #DCDCDC;
+color: black;
+padding: 20px 0;
+margin-top: 20px;
+}
+footer h2 {
+margin-bottom: 10px;
+}
+footer p {
+margin: 5px 0;
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<header>
+<img src="C:\Users\HP\Downloads/T-logo.jpg" alt="Logo" class="logo">
+<h1>TRENDSETTER</h1>
+<p>Find your perfect outfit for every occasion!</p>
+</header>
+<!-- Navigation Bar -->
+<nav>
+<button><a href="#home">Home</a></button>
+<button><a href="#traditional">Traditional</a></button>
+<button><a href="#casual">Casual</a></button>
+<button><a href="#partywear">Party Wear</a></button>
+<button><a href="#contact">Contact Us</a></button>
+</nav>
+<!-- Homepage Section with Full-Width Image -->
+<section class="home-section">
+<div class="home-text">
+<h2>WELCOME TO TRENSETTER !!</h2>
+<p>
+Discover the best in traditional, casual, and party wear clothing.
+Trendsetter brings you high-quality products at competitive prices, 
+ensuring you look your best for every occasion.
+</p>
+</div>
+</section>
+<!-- Traditional Wear Section -->
+<section id="traditional">
+<h2>Traditional Wear</h2>
+<table>
+<tr>
+<th>Product</th>
+<th>Description</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/saree-362757.jpg" alt="Saree"></td>
+<td>A Beautiful silk saree.</td>
+<td>₹1499</td>
+<td><button onclick="addToCart('Beautiful Silk Saree', 1499)">Add to Cart</button></td>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/screenshot_2024.jpg" alt="Kurta"></td>
+<td>Elegant kurta set perfect for weddings and festivals.</td>
+<td>₹4999</td>
+<td><button onclick="addToCart('Elegant kurta set perfect for weddings and festivals', 4999)">Add to Cart</button></td>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/special-lehnga.jpg"></td>
+<td>An elegant embroidered lehenga with floral patterns and a net dupatta..</td>
+<td>₹3999</td>
+<td><button onclick="addToCart('An elegant embroidered lehenga with floral patterns and a net dupatta..', 3999)">Add to Cart</button></td>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/kurtaset2.jpg"></td>
+<td>Woven art silk jacquard kurta set in navy blue.</td>
+<td>₹6999</td>
+<td><button onclick="addToCart('woven-art-silk-jacquard-kurta-set-in-navy-blue.', 2999)">Add to Cart</button></td>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/special-sherwani.jpg"></td>
+<td> A light pastel pink sherwani with intricate floral embroidery and geometric patterns.</td>
+<td>₹2999</td>
+<td><button onclick="addToCart('Sherwani', 6999)">Add to Cart</button></td>
+</tr>
+</table>
+</section>
+<!-- Casual Wear Section -->
+<section id="casual">
+<h2>Casual Wear</h2>
+<table>
+<tr>
+<th>Product</th>
+<th>Description</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/grey-t-shirt.jpg" alt="TShirt"></td>
+<td>Comfortable cotton t-shirt for everyday wear.</td>
+<td>₹1299</td>
+<td><button onclick="addToCart('T-Shirt', 1299)">Add to Cart</button></td>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/denim-jeans.jpg" alt="Jeans"></td>
+<td>Classic denim jeans for a casual look.</td>
+<td>₹1999.00</td>
+<td><button onclick="addToCart('Denim-Jeans', 1999)">Add to Cart</button></td>
+</tr>
+</table>
+</section>
+<!-- Party Wear Section -->
+<section id="partywear">
+<h2>Party Wear</h2>
+<table>
+<tr>
+<th>Product</th>
+<th>Description</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/special-gown.jpg" alt="Gown"></td>
+<td>Stunning evening gown for special occasions.</td>
+<td>₹2199</td>
+<td><button onclick="addToCart('Gown', 2199)">Add to Cart</button></td>
+</tr>
+<tr>
+<td><img src="C:\Users\HP\Downloads/special-blazer.jpg" alt="Blazer"></td>
+<td>Stylish blazer to complete your party look.</td>
+<td>₹4999</td>
+<td><button onclick="addToCart('Blazer', 4999)">Add to Cart</button></td>
+</tr>
+</table>
+</section>
+<!-- Footer -->
+<footer>
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Email: support@trendsetter.com</p>
+<p>Phone: +123 456 7890</p>
+</section>
+<p>&copy; 2024 Trendsetter. All rights reserved.</p>
+</footer>
+<div class="container">
+<button class="open-btn" onclick="openSidebar()">About Us</button>
+<div id="mySidebar" class="sidebar">
+<a href="javascript:void(0)" class="close-btn" 
+onclick="closeSidebar()">×</a>
+<h2>About Us</h2>
+<p>Welcome to our shopping website, where fashion meets convenience!</p>
+<p>We are a dynamic team of four passionate individuals—Utkarsh, Kuldeep, 
+Ravi, and Ajay—currently pursuing BTech in Computer Science Engineering 
+(CSE) at Shri Ram Group of Colleges, Muzaffarnagar.</p>
+<p>Our mission is to bring trendy, high-quality clothing to your doorstep 
+while making your shopping experience seamless and enjoyable.
+At the heart of our venture is a commitment to customer satisfaction. 
+Whether you’re looking for stylish casual wear, elegant formal attire, or 
+something in between, we have you covered!
+We believe in making fashion accessible to everyone, and your support 
+drives us to constantly improve and expand our offerings. Thank you for 
+choosing us to be part of your wardrobe journey.</p>
+<p>Let’s shop together and redefine fashion—one outfit at a time!</p>
+</div>
+<script>
+function openSidebar() {
+const sidebar = document.getElementById("mySidebar");
+sidebar.classList.add("open");
+}
+function closeSidebar() {
+const sidebar = document.getElementById("mySidebar");
+sidebar.classList.remove("open");
+}
+</script>
+  
+ <style>
+        #cartSection {
+            display: none; /* Hide cart initially */
+            padding: 20px;
+            background-color: #f9f9f9;
+            position: fixed;
+            top: 50px; /* Adjust for fixed position */
+            left: 20px; /* Place it on the right */
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .open-cart-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1001; /* Ensure button is above other elements */
+        }
+  .payment-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+.add-item-btn {
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+          }
+    </style>
+</head>
+<body>
+    <button class="open-cart-btn" onclick="toggleCart()">🛒 CART</button>
+    <div id="cartSection">
+        <h3>Shopping Cart</h3>
+        <ul id="cartItems" style="list-style-type: none; padding: 0;"></ul>
+        <p>Total: ₹<span id="cartTotal">0.00</span></p>
+        <button onclick="clearCart()" style="background-color: red; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px;">Clear Cart</button>
+        <button class="payment-btn" onclick="processPayment()">Pay Now</button>
+ </div>
+
+    <script>
+        const cart = [];
+        let total = 0;
+
+        // Toggle visibility of the cart section
+        function toggleCart() {
+            const cartSection = document.getElementById("cartSection");
+            if (cartSection.style.display === "none" || cartSection.style.display === "") {
+                cartSection.style.display = "block";
+            } else {
+                cartSection.style.display = "none";
+            }
+        }
+
+        // Add items to the cart
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price });
+            updateCart();
+        }
+
+        // Update cart display and total
+        function updateCart() {
+            const cartItems = document.getElementById("cartItems");
+            const cartTotal = document.getElementById("cartTotal");
+
+            cartItems.innerHTML = ""; // Clear current items
+            total = 0;
+
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ₹${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Clear the cart
+        function clearCart() {
+            cart.length = 0; // Empty the cart
+            updateCart();
+        }
+  // Process payment
+        function processPayment() {
+            alert(`Processing payment of ₹${total.toFixed(2)}`);
+            // Add payment integration logic here
+        }
+</script>
+</body>
+</html>
